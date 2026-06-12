@@ -6,6 +6,8 @@
     {
         public function run()
         {
+            date_default_timezone_set('Asia/Yangon');
+
             require_once __DIR__ . '/Router.php';
             require_once __DIR__ . '/Database.php';
 

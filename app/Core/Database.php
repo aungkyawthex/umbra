@@ -5,12 +5,16 @@
         {
             $config = require __DIR__ . '/../../config/database.php';
 
-            return new PDO(
+            $pdo = new PDO(
                 "mysql:host={$config['host']};dbname={$config['dbname']}",
                 $config['user'],
                 $config['pass'],
                 [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
             );
+
+            $pdo->exec("SET time_zone = '+06:30'");
+
+            return $pdo;
         }
     }
 ?>
